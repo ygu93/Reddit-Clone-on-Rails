@@ -1,0 +1,14 @@
+<h2> <%= @sub.title %> </h2>
+<p>
+  <%= @sub.description %>
+</p>
+
+<ul>
+  <% @sub.posts.each do |post| %>
+  <li> <%= link_to post.title, post_url(post)  %> </li>
+  <% end %>
+</ul>
+
+<%= button_to "Edit Subreddit", edit_sub_url(@sub), method: 'get' %>
+<%= button_to "Subreddit Index", subs_url, method: 'get' %>
+<%= button_to "Create a post", new_post_url(@sub), method: 'get' %>

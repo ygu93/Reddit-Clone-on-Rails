@@ -1,0 +1,10 @@
+<h2>  Create a new subreddit</h2>
+<form action=" <%=subs_url  %> " method="post">
+  <%= auth_token %>
+
+<label for="Title"> Title</label>
+<input type="text" name="sub[title]" id = 'Title'>
+<label for="description"> Description</label>
+<input type="text" name="sub[description]" id = 'description'>
+<button> Submit </button>
+</form>

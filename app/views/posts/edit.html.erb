@@ -1,0 +1,26 @@
+<h2>  Edit a new post</h2>
+<form action=" <%= posts_url  %> " method="post">
+  <%= auth_token %>
+
+  <input type="hidden" name="post[sub_ids][]" value="">
+
+  <% Sub.all.each do |subreddit| %>
+    <label><%= subreddit.title %>
+      <input type="checkbox" value="<%= subreddit.id %>" name="post[sub_ids][]"
+        <%= "checked" if @post && @post.sub_ids.include?(subreddit.id) %>>
+    </label>
+  <% end %>
+<br>
+
+<label for="Title"> Title</label>
+<input type="text" name="post[title]" id = 'Title' value= "<%= @post.title %>" >
+<br>
+<label for="url"> Url</label>
+<input type="text" name="post[url]" id = 'url' value= "<%= @post.url %>" >
+<br>
+<label for="content"> Content</label>
+<br>
+<textarea name="post[content]" rows="8" cols="40"><%= @post.content %></textarea>
+<br>
+<button> Submit </button>
+</form>

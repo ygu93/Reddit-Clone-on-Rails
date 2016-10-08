@@ -1,0 +1,7 @@
+<h2>Subreddits</h2>
+<%= link_to "make a new subreddit", new_sub_url %>
+<ul>
+  <% Sub.all.each do |subred| %>
+  <li><%= link_to subred.title, sub_url(subred) %></li>
+  <% end %>
+</ul>

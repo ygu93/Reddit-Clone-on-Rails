@@ -1,0 +1,12 @@
+<h2>  Edit Subreddit</h2>
+<form action=" <%=sub_url(@sub)  %> " method="post">
+  <input type="hidden" name="_method" value="patch">
+  <%= auth_token %>
+
+<label for="Title"> Title </label>
+<input type="text" name="sub[title]" id = 'Title' value ="<%= @sub.title %>">
+<br>
+<label for="description"> Description</label>
+<input type="text" name="sub[description]" id = 'description' value = "<%= @sub.description %>" >
+<button> Submit </button>
+</form>
