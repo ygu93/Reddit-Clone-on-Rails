@@ -4,9 +4,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save!
+    if @user.save
       login_user!(@user)
-      redirect_to user_url(@user)
+      redirect_to subs_url
     else
       render :new
     end
